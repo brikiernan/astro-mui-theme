@@ -15,7 +15,7 @@ export const AstroThemeProvider: React.FC<AstroThemeProviderProps> = props => {
   const [theme, setTheme] = React.useState<Theme>(memoizedTheme);
 
   React.useEffect(() => {
-    const isLightTheme = document.body.classList.contains('light-theme');
+    const isLightTheme = mode === 'light';
 
     if (isLightTheme) {
       setTheme(astroTheme('light'));
