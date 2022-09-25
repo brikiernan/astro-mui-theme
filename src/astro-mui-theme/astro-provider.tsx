@@ -15,34 +15,40 @@ export const AstroThemeProvider: React.FC<AstroThemeProviderProps> = props => {
   const memoizedTheme = React.useMemo(() => astroTheme(), []);
   const [theme, setTheme] = React.useState<Theme>(memoizedTheme);
 
-  React.useEffect(() => console.log('[ASTRO THEME PROVIDER]:', theme), [theme]);
+  React.useEffect(() => {
+    console.log('[ASTRO THEME PROVIDER]:', theme);
+  }, [theme]);
+
+  React.useEffect(() => {
+    console.log('[OWNER THEME]:', ownerTheme);
+  }, [ownerTheme]);
 
   React.useEffect(() => setTheme(astroTheme(mode)), [mode]);
 
-  React.useEffect(() => {
-    if (!ownerTheme) return;
+  // React.useEffect(() => {
+  //   if (!ownerTheme) return;
 
-    setTheme(astroTheme => ({
-      // owner override
-      ...astroTheme,
-      ...ownerTheme,
-      components: {
-        // astro override
-        ...ownerTheme.components,
-        ...astroTheme.components,
-      },
-      palette: {
-        // owner override
-        ...ownerTheme.palette,
-        ...astroTheme.palette,
-        background: {
-          // astro override
-          ...astroTheme.palette.background,
-          ...ownerTheme.palette.background,
-        },
-      },
-    }));
-  }, [ownerTheme]);
+  //   setTheme(astroTheme => ({
+  //     // owner override
+  //     ...astroTheme,
+  //     ...ownerTheme,
+  //     components: {
+  //       // astro override
+  //       ...ownerTheme.components,
+  //       ...astroTheme.components,
+  //     },
+  //     palette: {
+  //       // owner override
+  //       ...ownerTheme.palette,
+  //       ...astroTheme.palette,
+  //       background: {
+  //         // astro override
+  //         ...astroTheme.palette.background,
+  //         ...ownerTheme.palette.background,
+  //       },
+  //     },
+  //   }));
+  // }, [ownerTheme]);
 
   return (
     <ThemeProvider theme={theme}>
