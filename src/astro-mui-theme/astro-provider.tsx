@@ -9,7 +9,8 @@ export interface AstroThemeProviderProps {
 
 export const AstroThemeProvider: React.FC<AstroThemeProviderProps> = props => {
   const { children, theme: ownerTheme } = props;
-  const [theme, setTheme] = React.useState<Theme>(astroTheme());
+  const memoizedTheme = React.useMemo(() => astroTheme(), []);
+  const [theme, setTheme] = React.useState<Theme>(memoizedTheme);
 
   React.useEffect(() => {
     const isLightTheme = document.body.classList.contains('light-theme');
