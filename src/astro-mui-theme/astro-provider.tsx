@@ -1,14 +1,16 @@
 import React from 'react';
 import { CssBaseline, Theme, ThemeProvider } from '@mui/material';
 import { astroTheme } from './astro-theme';
+import { Mode } from './types';
 
 export interface AstroThemeProviderProps {
   children: React.ReactNode;
   theme?: Theme;
+  mode?: Mode;
 }
 
 export const AstroThemeProvider: React.FC<AstroThemeProviderProps> = props => {
-  const { children, theme: ownerTheme } = props;
+  const { children, theme: ownerTheme, mode } = props;
   const memoizedTheme = React.useMemo(() => astroTheme(), []);
   const [theme, setTheme] = React.useState<Theme>(memoizedTheme);
 
@@ -18,7 +20,7 @@ export const AstroThemeProvider: React.FC<AstroThemeProviderProps> = props => {
     if (isLightTheme) {
       setTheme(astroTheme('light'));
     }
-  });
+  }, [mode]);
 
   // useEffect(() => console.log('[THEME]:', theme), [theme]);
 
