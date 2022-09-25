@@ -71,7 +71,6 @@ declare module '@mui/material' {
   }
 
   interface Theme extends AstroTheme {}
-  interface ThemeOptions extends AstroTheme {}
 }
 
 interface Spacing {

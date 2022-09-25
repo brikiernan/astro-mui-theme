@@ -2,6 +2,10 @@ import { createTheme } from '@mui/material';
 import { astroTokens } from './astro-tokens';
 import { Mode } from './types';
 
+declare module '@mui/material' {
+  interface ThemeOptions extends AstroTheme {}
+}
+
 export const astroTheme = (mode: Mode = 'dark') => {
   const astro = astroTokens(mode);
 
