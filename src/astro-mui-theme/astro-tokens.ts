@@ -5,7 +5,6 @@ import lightTheme from '@astrouxds/design-tokens/dist/json/theme.light.json';
 import { Mode } from './types';
 
 export const astroTokens = (mode: Mode): AstroTheme['astro'] => {
-  // console.log('[MODE]: ', mode);
   const isLightTheme = mode === 'light';
 
   // @ts-ignore
