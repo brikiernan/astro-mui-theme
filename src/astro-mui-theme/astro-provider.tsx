@@ -17,7 +17,7 @@ export const AstroThemeProvider: React.FC<AstroThemeProviderProps> = props => {
     if (isLightTheme) {
       setTheme(astroTheme('light'));
     }
-  }, []);
+  });
 
   // useEffect(() => console.log('[THEME]:', theme), [theme]);
 
