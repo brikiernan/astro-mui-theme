@@ -1,6 +1,7 @@
 import { createTheme } from '@mui/material';
+import type { Mode } from '../types/utils';
+import type { AstroTheme } from '../types/astro-theme';
 import { astroTokens } from './astro-tokens';
-import { Mode } from './types';
 
 declare module '@mui/material' {
   interface ThemeOptions extends AstroTheme {}
