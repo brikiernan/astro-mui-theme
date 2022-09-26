@@ -36,6 +36,6 @@
     "typescript": "^4.4.3"
   },
   "dependencies": {
-    "@astrouxds/design-tokens": "^2.0.0-beta.15"
+    "@astrouxds/tokens": "^1.0.0"
   }
 }

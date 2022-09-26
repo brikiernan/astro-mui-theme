@@ -1,6 +1,6 @@
-import system from '@astrouxds/design-tokens/dist/json/base.system.json';
-import reference from '@astrouxds/design-tokens/dist/json/base.reference.json';
-import lightTheme from '@astrouxds/design-tokens/dist/json/theme.light.json';
+import system from '@astrouxds/tokens/dist/json/base.system.json';
+import reference from '@astrouxds/tokens/dist/json/base.reference.json';
+import lightTheme from '@astrouxds/tokens/dist/json/theme.light.json';
 import type { AstroTheme } from '../types/astro-theme';
 import type { Mode } from '../types/utils';
 
