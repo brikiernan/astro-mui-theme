@@ -13,10 +13,6 @@ export const AstroThemeProvider: React.FC<AstroThemeProviderProps> = props => {
   const { children, mode } = props;
   const [theme, setTheme] = React.useState<Theme>(astroTheme(mode));
 
-  React.useEffect(() => {
-    console.log('[ASTRO THEME PROVIDER]:', theme);
-  }, [theme]);
-
   React.useEffect(() => setTheme(astroTheme(mode)), [mode]);
 
   return (

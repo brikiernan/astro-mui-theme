@@ -56,7 +56,7 @@ export const astroTheme = (mode: Mode = 'dark') => {
       },
     },
     shape: {
-      borderRadius: astro.radius.base,
+      borderRadius: parseInt(astro.radius.base.slice(0, 1)),
     },
     typography: {
       fontFamily: astro.fontControl.body1.fontFamily,
