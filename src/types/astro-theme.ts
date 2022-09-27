@@ -18,38 +18,6 @@ export interface AstroTheme {
         hover: string;
       };
     };
-    border: {
-      interactive: {
-        default: string;
-      };
-      width: {
-        sm: string;
-      };
-    };
-    fontControl: {
-      body1: {
-        fontFamily: string;
-        fontWeight: string;
-        lineHeight: string;
-        fontSize: string;
-        letterSpacing: string;
-      };
-    };
-    palette: {
-      grey: {
-        '100': string;
-      };
-    };
-    radius: {
-      base: string;
-      circle: string;
-    };
-    spacing: Spacing;
-    status: {
-      caution: string;
-      normal: string;
-      standby: string;
-    };
     text: {
       primary: string;
       secondary: string;
@@ -63,8 +31,165 @@ export interface AstroTheme {
       black: string;
       error: string;
     };
+    border: {
+      error: string;
+      interactive: {
+        default: string;
+        hover: string;
+        muted: string;
+      };
+      width: {
+        none: number;
+        xs: string;
+        sm: string;
+        lg: string;
+      };
+    };
+    status: {
+      critical: string;
+      serious: string;
+      caution: string;
+      normal: string;
+      standby: string;
+      off: string;
+    };
+    classification: {
+      topsecretsci: string;
+      topsecret: string;
+      secret: string;
+      confidential: string;
+      cui: string;
+      unclassified: string;
+    };
+    shadow: {
+      overlay: string;
+    };
+    opacity: {
+      '25': string;
+      '35': string;
+      '40': string;
+      '45': string;
+      '50': string;
+    };
+    palette: {
+      neutral: {
+        '1000': string;
+        '000': string;
+      };
+      darkblue: Color100To900 & {
+        '950': string;
+      };
+      brightblue: Color100To900 & {
+        '850': string;
+      };
+      grey: Color100To900 & {
+        '250': string;
+      };
+      red: Color400To900;
+      orange: Color400To900;
+      yellow: Color400To900;
+      green: Color400To900;
+      cyan: Color400To900;
+      violet: {
+        '800': string;
+      };
+      blue: {
+        '800': string;
+      };
+      teal: Color100To900;
+      purple: Color100To900;
+      pink: Color100To900;
+      hotorange: Color100To900;
+    };
+    radius: {
+      base: string;
+      circle: string;
+    };
+    fontFamily: string;
+    lineHeight: {
+      '2xs': string;
+      xs: string;
+      sm: string;
+      base: string;
+      lg: string;
+      xl: string;
+      '2xl': string;
+      '3xl': string;
+      '4xl': string;
+    };
+    fontWeight: {
+      light: string;
+      regular: string;
+      medium: string;
+      bold: string;
+    };
+    fontSize: {
+      xs: string;
+      sm: string;
+      base: string;
+      lg: string;
+      xl: string;
+      '2xl': string;
+      '3xl': string;
+      '4xl': string;
+      '5xl': string;
+      '6xl': string;
+    };
+    letterSpacing: {
+      '2xl': string;
+      xl: string;
+      base: string;
+      lg: string;
+      sm: string;
+    };
+    fontBody1: FontBody & {
+      bold: FontBody;
+    };
+    fontControl: {
+      body1: {
+        fontFamily: string;
+        fontWeight: string;
+        lineHeight: string;
+        fontSize: string;
+        letterSpacing: string;
+      };
+    };
+
+    spacing: Spacing;
   };
 }
+
+type Color100To900 = {
+  '100': string;
+  '200': string;
+  '300': string;
+  '400': string;
+  '500': string;
+  '600': string;
+  '700': string;
+  '800': string;
+  '900': string;
+};
+
+type Color400To900 = {
+  '400': string;
+  '500': string;
+  '600': string;
+  '700': string;
+  '800': string;
+  '900': string;
+};
+
+type FontBody = {
+  fontFamily: string;
+  fontWeight: string;
+  lineHeight: string;
+  fontSize: string;
+  letterSpacing: string;
+  paragraphSpacing: number;
+  textDecoration: string;
+  textCase: string;
+};
 
 interface Spacing {
   /**
