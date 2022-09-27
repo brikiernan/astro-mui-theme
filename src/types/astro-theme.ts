@@ -142,19 +142,29 @@ export interface AstroTheme {
       lg: string;
       sm: string;
     };
-    fontBody1: FontBody & {
-      bold: FontBody;
+    fontBody1: FontType & {
+      bold: FontType;
     };
-    fontControl: {
-      body1: {
-        fontFamily: string;
-        fontWeight: string;
-        lineHeight: string;
-        fontSize: string;
-        letterSpacing: string;
-      };
+    fontBody2: FontType & {
+      bold: FontType;
     };
-
+    fontBody3: FontType & {
+      bold: FontType;
+    };
+    fontControlBody1: FontType & {
+      bold: FontType;
+    };
+    fontHeading1: FontType & {
+      bold: FontType;
+    };
+    fontHeading2: FontType;
+    fontHeading3: FontType;
+    fontHeading4: FontType;
+    fontHeading5: FontType;
+    fontHeading6: FontType;
+    fontDisplay1: FontType;
+    fontDisplay2: FontType;
+    fontMonospace: FontType;
     spacing: Spacing;
   };
 }
@@ -180,7 +190,7 @@ type Color400To900 = {
   '900': string;
 };
 
-type FontBody = {
+type FontType = {
   fontFamily: string;
   fontWeight: string;
   lineHeight: string;
