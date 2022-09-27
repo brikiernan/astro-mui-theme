@@ -12,8 +12,7 @@ export interface AstroThemeProviderProps {
 
 export const AstroThemeProvider: React.FC<AstroThemeProviderProps> = props => {
   const { children, mode, theme: ownerTheme } = props;
-  const memoizedTheme = React.useMemo(() => astroTheme(), []);
-  const [theme, setTheme] = React.useState<Theme>(memoizedTheme);
+  const [theme, setTheme] = React.useState<Theme>(astroTheme(mode));
 
   React.useEffect(() => {
     console.log('[ASTRO THEME PROVIDER]:', theme);
