@@ -18,5 +18,9 @@ export const handleOwnerTheme = (
       ...astroTheme.components,
       ...ownerTheme.components,
     },
+    palette: {
+      // astro overrides
+      ...astroTheme.palette,
+    },
   };
 };
