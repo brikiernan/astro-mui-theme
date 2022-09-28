@@ -15,12 +15,18 @@ export const handleOwnerTheme = (
     ...astroTheme,
     ...ownerTheme,
     components: {
+      // owner overrides
       ...astroTheme.components,
       ...ownerTheme.components,
     },
     palette: {
       // astro overrides
       ...astroTheme.palette,
+    },
+    typography: {
+      // astro overrides
+      ...ownerTheme.typography,
+      ...astroTheme.typography,
     },
   };
 };
