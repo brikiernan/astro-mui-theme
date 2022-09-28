@@ -1,19 +1,34 @@
 import React from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import type { Theme } from '@mui/material';
-import type { Mode } from '../types/utils';
+import type { Mode } from '../types/global';
 import { astroTheme } from './astro-theme';
 import { handleOwnerTheme } from './handle-owner-theme';
 
 export interface AstroThemeProviderProps {
   children: React.ReactNode;
+  /**
+   * Adds console logs for Astro theme, Owner theme, and
+   * the combinded theme output
+   *
+   * @default false
+   */
   debug?: boolean;
+  /**
+   * Outputs the Astro dark or light theme
+   *
+   * @default dark
+   */
   mode?: Mode;
-  theme?: Theme;
+  /**
+   * Overrides the some of the Astro theme, but NO ownerTheme
+   * is required to use the Astro theme
+   */
+  ownerTheme?: Theme;
 }
 
 export const AstroThemeProvider: React.FC<AstroThemeProviderProps> = props => {
-  const { children, debug = false, mode, theme: ownerTheme } = props;
+  const { children, debug = false, mode, ownerTheme } = props;
   const [theme, setTheme] = React.useState<Theme>(astroTheme(mode));
 
   React.useEffect(() => {

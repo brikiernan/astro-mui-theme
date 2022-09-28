@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material';
-import type { Mode } from '../types/utils';
+import type { Mode } from '../types/global';
 import type { AstroTheme } from '../types/astro-theme';
 import { astroTokens } from './astro-tokens';
 

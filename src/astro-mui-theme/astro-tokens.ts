@@ -3,7 +3,7 @@ import reference from '@astrouxds/tokens/dist/json/base.reference.json';
 import component from '@astrouxds/tokens/dist/json/base.component.json';
 import lightTheme from '@astrouxds/tokens/dist/json/theme.light.json';
 import type { AstroTheme } from '../types/astro-theme';
-import type { Mode } from '../types/utils';
+import type { Mode } from '../types/global';
 
 export const astroTokens = (mode: Mode): AstroTheme['astro'] => {
   const isLightTheme = mode === 'light';
