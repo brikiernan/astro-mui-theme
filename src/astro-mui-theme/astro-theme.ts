@@ -59,6 +59,13 @@ export const astroTheme = (mode: Mode = 'dark') => {
       fontFamily: astro.typography.fontFamily,
       button: astro.typography.body1,
       body1: astro.typography.body1,
+      body2: astro.typography.body2,
+      h1: astro.typography.h1,
+      h2: astro.typography.h2,
+      h3: astro.typography.h3,
+      h4: astro.typography.h4,
+      h5: astro.typography.h5,
+      h6: astro.typography.h6,
     },
     /* -- Start default Mui component overrides -- */
     components: {},
