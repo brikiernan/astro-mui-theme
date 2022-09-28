@@ -1,6 +1,6 @@
 {
   "name": "astro-mui-theme",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "A MUI theme provider for Astro UXDS space design system.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
