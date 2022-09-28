@@ -21,7 +21,7 @@ export interface AstroThemeProviderProps {
    */
   mode?: Mode;
   /**
-   * Overrides the some of the Astro theme, but NO ownerTheme
+   * Overrides some of the Astro theme, but NO ownerTheme
    * is required to use the Astro theme
    */
   ownerTheme?: Theme;
