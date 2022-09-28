@@ -14,54 +14,54 @@ export const astroTheme = (mode: Mode = 'dark') => {
     astro,
     palette: {
       common: {
-        black: astro.text.black,
-        white: astro.text.white,
+        black: astro.color.text.black,
+        white: astro.color.text.white,
       },
       /* -- throws unsupported format error for var() -- */
       primary: {
-        main: astro.text.interactive.default,
+        main: astro.color.text.interactive.default,
       },
       secondary: {
-        main: astro.text.interactive.hover,
+        main: astro.color.text.interactive.hover,
       },
       error: {
-        main: astro.text.error,
+        main: astro.color.text.error,
       },
       warning: {
-        main: astro.status.caution,
+        main: astro.color.status.caution,
       },
       info: {
-        main: astro.status.standby,
+        main: astro.color.status.standby,
       },
       success: {
-        main: astro.status.normal,
+        main: astro.color.status.normal,
       },
       text: {
-        primary: astro.text.primary,
+        primary: astro.color.text.primary,
         // does NOT throw
-        secondary: astro.text.secondary,
+        secondary: astro.color.text.secondary,
       },
       /* -- end unsupported errors -- */
-      divider: astro.text.primary,
+      divider: astro.color.text.primary,
       background: {
-        default: astro.background.base.default,
-        paper: astro.background.surface.default,
+        default: astro.color.background.base.default,
+        paper: astro.color.background.surface.default,
       },
       action: {
-        hover: astro.background.base.default,
-        selected: astro.background.base.selected,
+        hover: astro.color.background.base.default,
+        selected: astro.color.background.base.selected,
       },
       grey: {
         '100': astro.palette.grey['100'],
       },
     },
     shape: {
-      borderRadius: parseInt(astro.radius.base.slice(0, 1)),
+      borderRadius: parseInt(astro.radius.base.charAt(0)),
     },
     typography: {
-      fontFamily: astro.fontControl.body1.fontFamily,
-      button: astro.fontControl.body1,
-      body1: astro.fontControl.body1,
+      fontFamily: astro.typography.fontFamily,
+      button: astro.typography.body1,
+      body1: astro.typography.body1,
     },
     /* -- Start default Mui component overrides -- */
     components: {
@@ -73,24 +73,24 @@ export const astroTheme = (mode: Mode = 'dark') => {
         },
         styleOverrides: {
           contained: {
-            color: astro.text.inverse,
-            backgroundColor: astro.background.interactive.default,
+            color: astro.color.text.inverse,
+            backgroundColor: astro.color.background.interactive.default,
             borderRadius: astro.radius.base,
             '&:hover': {
-              backgroundColor: astro.background.interactive.hover,
+              backgroundColor: astro.color.background.interactive.hover,
             },
           },
           root: {
             padding: astro.spacing(2, 4),
             textTransform: 'none',
-            ...astro.fontControl.body1,
+            ...astro.typography.body1,
           },
         },
       },
       MuiList: {
         styleOverrides: {
           root: {
-            backgroundColor: astro.background.surface.default,
+            backgroundColor: astro.color.background.surface.default,
           },
         },
         defaultProps: {
@@ -105,18 +105,18 @@ export const astroTheme = (mode: Mode = 'dark') => {
         styleOverrides: {
           root: {
             '&:hover': {
-              backgroundColor: astro.background.surface.hover,
+              backgroundColor: astro.color.background.surface.hover,
             },
             '&.Mui-selected': {
-              backgroundColor: astro.background.surface.selected,
-              boxShadow: `-4px 0 0 0 ${astro.border.interactive.default}`,
+              backgroundColor: astro.color.background.surface.selected,
+              boxShadow: `-4px 0 0 0 ${astro.color.border.interactive.default}`,
               paddingLeft: astro.spacing(3),
               marginLeft: astro.spacing(1),
             },
             '&.MuiListItemButton-divider': {
-              borderBottomWidth: astro.border.width.sm,
+              borderBottomWidth: astro.color.border.width.sm,
               borderBottomStyle: 'solid',
-              borderBottomColor: astro.text.inverse,
+              borderBottomColor: astro.color.text.inverse,
             },
             gap: astro.spacing(4),
             padding: astro.spacing(1, 4),

@@ -1,14 +1,13 @@
-import system from "@astrouxds/tokens/dist/json/base.system.json";
-import reference from "@astrouxds/tokens/dist/json/base.reference.json";
-import component from "@astrouxds/tokens/dist/json/base.component.json";
-import lightTheme from "@astrouxds/tokens/dist/json/theme.light.json";
-import type { AstroTheme } from "../types/astro-theme";
-import type { Mode } from "../types/utils";
+import system from '@astrouxds/tokens/dist/json/base.system.json';
+import reference from '@astrouxds/tokens/dist/json/base.reference.json';
+import component from '@astrouxds/tokens/dist/json/base.component.json';
+import lightTheme from '@astrouxds/tokens/dist/json/theme.light.json';
+import type { AstroTheme } from '../types/astro-theme';
+import type { Mode } from '../types/utils';
 
-// prettier-ignore
 export const astroTokens = (mode: Mode): AstroTheme['astro'] => {
   const isLightTheme = mode === 'light';
-
+  // prettier-ignore
   let theme: typeof lightTheme = {
     'gsb-icon-color-fill-default': component['gsb-icon-color-fill-default'],
     'gsb-icon-color-fill-hover': component['gsb-icon-color-fill-hover'],
@@ -40,19 +39,19 @@ export const astroTokens = (mode: Mode): AstroTheme['astro'] => {
     'color-border-interactive-hover': system['color-border-interactive-hover'],
     'color-border-interactive-muted': system['color-border-interactive-muted'],
     'color-border-error': system['color-border-error'],
-    'shadow-overlay':system ['shadow-overlay'],
+    'shadow-overlay': system['shadow-overlay'],
   };
-
+  // prettier-ignore
   if (isLightTheme) {
     theme['gsb-icon-color-fill-default'] = lightTheme['gsb-icon-color-fill-default'];
     theme['gsb-icon-color-fill-hover'] = lightTheme['gsb-icon-color-fill-hover'];
     theme['gsb-color-background'] = lightTheme['gsb-color-background'];
-    theme['gsb-color-text'] = lightTheme ['gsb-color-text'];
-    theme['scrollbar-shadow-inner-vertical'] = lightTheme ['scrollbar-shadow-inner-vertical'];
-    theme['scrollbar-shadow-inner-horizontal'] = lightTheme ['scrollbar-shadow-inner-horizontal'];
-    theme['tag-shadow-inner-pass'] = lightTheme ['tag-shadow-inner-pass'];
-    theme['tag-shadow-inner-fail'] = lightTheme ['tag-shadow-inner-fail'];
-    theme['tag-shadow-inner-unknown'] = lightTheme ['tag-shadow-inner-unknown'];
+    theme['gsb-color-text'] = lightTheme['gsb-color-text'];
+    theme['scrollbar-shadow-inner-vertical'] = lightTheme['scrollbar-shadow-inner-vertical'];
+    theme['scrollbar-shadow-inner-horizontal'] = lightTheme['scrollbar-shadow-inner-horizontal'];
+    theme['tag-shadow-inner-pass'] = lightTheme['tag-shadow-inner-pass'];
+    theme['tag-shadow-inner-fail'] = lightTheme['tag-shadow-inner-fail'];
+    theme['tag-shadow-inner-unknown'] = lightTheme['tag-shadow-inner-unknown'];
     theme['color-background-base-default'] = lightTheme['color-background-base-default'];
     theme['color-background-base-header'] = lightTheme['color-background-base-header'];
     theme['color-background-base-hover'] = lightTheme['color-background-base-hover'];
@@ -78,69 +77,72 @@ export const astroTokens = (mode: Mode): AstroTheme['astro'] => {
   }
 
   return {
-    background: {
-      base: {
-        default: theme['color-background-base-default'],
-        header: theme['color-background-base-header'],
-        hover: theme['color-background-base-hover'],
-        selected: theme['color-background-base-selected'],
+    color: {
+      background: {
+        base: {
+          default: theme['color-background-base-default'],
+          header: theme['color-background-base-header'],
+          hover: theme['color-background-base-hover'],
+          selected: theme['color-background-base-selected'],
+        },
+        surface: {
+          default: theme['color-background-surface-default'],
+          header: theme['color-background-surface-header'],
+          hover: theme['color-background-surface-hover'],
+          selected: theme['color-background-surface-selected'],
+        },
+        interactive: {
+          default: theme['color-background-interactive-default'],
+          hover: theme['color-background-interactive-hover'],
+        },
       },
-      surface: {
-        default: theme['color-background-surface-default'],
-        header: theme['color-background-surface-header'],
-        hover: theme['color-background-surface-hover'],
-        selected: theme['color-background-surface-selected'],
+      text: {
+        primary: theme['color-text-primary'],
+        secondary: theme['color-text-secondary'],
+        placeholder: theme['color-text-placeholder'],
+        inverse: theme['color-text-inverse'],
+        interactive: {
+          default: theme['color-text-interactive-default'],
+          hover: theme['color-text-interactive-hover'],
+        },
+        white: system['color-text-white'],
+        black: system['color-text-black'],
+        error: system['color-text-error'],
       },
-      interactive: {
-        default: theme['color-background-interactive-default'],
-        hover: theme['color-background-interactive-hover'],
+      border: {
+        error: theme['color-border-error'],
+        interactive: {
+          default: theme['color-border-interactive-default'],
+          hover: theme['color-border-interactive-hover'],
+          muted: theme['color-border-interactive-muted'],
+        },
+        width: {
+          none: reference['border-width-none'],
+          xs: reference['border-width-xs'],
+          sm: reference['border-width-sm'],
+          lg: reference['border-width-lg'],
+        },
       },
-    },
-    text: {
-      primary: theme['color-text-primary'],
-      secondary: theme['color-text-secondary'],
-      placeholder: theme['color-text-placeholder'],
-      inverse: theme['color-text-inverse'],
-      interactive: {
-        default: theme['color-text-interactive-default'],
-        hover: theme['color-text-interactive-hover'],
+      status: {
+        critical: system['color-status-critical'],
+        serious: system['color-status-serious'],
+        caution: system['color-status-caution'],
+        normal: system['color-status-normal'],
+        standby: system['color-status-standby'],
+        off: system['color-status-off'],
       },
-      white: system['color-text-white'],
-      black: system['color-text-black'],
-      error: system['color-text-error'],
-    },
-    border: {
-      error: '',
-      interactive: {
-        default: theme['color-border-interactive-default'],
-        hover: theme['color-border-interactive-hover'],
-        muted: theme['color-border-interactive-muted'],
+      classification: {
+        topsecretsci:
+          component['classification-banner-color-background-topsecretsci'],
+        topsecret:
+          component['classification-banner-color-background-topsecretsci'],
+        secret: component['classification-banner-color-background-secret'],
+        confidential:
+          component['classification-banner-color-background-confidential'],
+        cui: component['classification-banner-color-background-cui'],
+        unclassified:
+          component['classification-banner-color-background-unclassified'],
       },
-      width: {
-        none: 0,
-        xs: reference['border-width-xs'],
-        sm: reference['border-width-sm'],
-        lg: reference['border-width-lg'],
-      },
-    },
-    status: {
-      critical: system['color-status-critical'],
-      serious: system['color-status-serious'],
-      caution: system['color-status-caution'],
-      normal: system['color-status-normal'],
-      standby: system['color-status-standby'],
-      off: system['color-status-off']
-    },
-    classification: {
-      topsecretsci: component['classification-banner-color-background-topsecretsci'],
-      topsecret: component['classification-banner-color-background-topsecretsci'],
-      secret: component['classification-banner-color-background-secret'],
-      confidential: component['classification-banner-color-background-confidential'],
-      cui: component['classification-banner-color-background-cui'],
-      unclassified: component['classification-banner-color-background-unclassified'],
-    },
-    shadow: {
-      overlay: theme['shadow-overlay'],
     },
     opacity: {
       '25': reference['opacity-25'],
@@ -148,11 +150,12 @@ export const astroTokens = (mode: Mode): AstroTheme['astro'] => {
       '40': reference['opacity-40'],
       '45': reference['opacity-45'],
       '50': reference['opacity-50'],
+      disabled: system['opacity-disabled'],
     },
     palette: {
-      neutral: { 
+      neutral: {
         '1000': reference['color-palette-neutral-1000'],
-        '000': reference['color-palette-neutral-000']
+        '000': reference['color-palette-neutral-000'],
       },
       darkblue: {
         '100': reference['color-palette-darkblue-100'],
@@ -213,7 +216,7 @@ export const astroTokens = (mode: Mode): AstroTheme['astro'] => {
         '700': reference['color-palette-yellow-700'],
         '800': reference['color-palette-yellow-800'],
         '900': reference['color-palette-yellow-900'],
-      }, 
+      },
       green: {
         '400': reference['color-palette-green-400'],
         '500': reference['color-palette-green-500'],
@@ -229,284 +232,228 @@ export const astroTokens = (mode: Mode): AstroTheme['astro'] => {
         '700': reference['color-palette-cyan-700'],
         '800': reference['color-palette-cyan-800'],
         '900': reference['color-palette-cyan-900'],
-      }, 
+      },
       violet: {
         '800': reference['color-palette-violet-800'],
-     }, 
-     blue: {
-      '800': reference['color-palette-blue-800'],
-     }, 
-     teal: {
-      '100': reference['color-palette-teal-100'],
-      '200': reference['color-palette-teal-200'],
-      '300': reference['color-palette-teal-300'],
-      '400': reference['color-palette-teal-400'],
-      '500': reference['color-palette-teal-500'],
-      '600': reference['color-palette-teal-600'],
-      '700': reference['color-palette-teal-700'],
-      '800': reference['color-palette-teal-800'],
-      '900': reference['color-palette-teal-900'],
-    },
-    purple: {
-      '100': reference['color-palette-purple-100'],
-      '200': reference['color-palette-purple-200'],
-      '300': reference['color-palette-purple-300'],
-      '400': reference['color-palette-purple-400'],
-      '500': reference['color-palette-purple-500'],
-      '600': reference['color-palette-purple-600'],
-      '700': reference['color-palette-purple-700'],
-      '800': reference['color-palette-purple-800'],
-      '900': reference['color-palette-purple-900'],
-    },
-    pink: {
-      '100': reference['color-palette-pink-100'],
-      '200': reference['color-palette-pink-200'],
-      '300': reference['color-palette-pink-300'],
-      '400': reference['color-palette-pink-400'],
-      '500': reference['color-palette-pink-500'],
-      '600': reference['color-palette-pink-600'],
-      '700': reference['color-palette-pink-700'],
-      '800': reference['color-palette-pink-800'],
-      '900': reference['color-palette-pink-900'],
-    },
-    hotorange: {
-      '100': reference['color-palette-hotorange-100'],
-      '200': reference['color-palette-hotorange-200'],
-      '300': reference['color-palette-hotorange-300'],
-      '400': reference['color-palette-hotorange-400'],
-      '500': reference['color-palette-hotorange-500'],
-      '600': reference['color-palette-hotorange-600'],
-      '700': reference['color-palette-hotorange-700'],
-      '800': reference['color-palette-hotorange-800'],
-      '900': reference['color-palette-hotorange-900'],
-    },
+      },
+      blue: {
+        '800': reference['color-palette-blue-800'],
+      },
+      teal: {
+        '100': reference['color-palette-teal-100'],
+        '200': reference['color-palette-teal-200'],
+        '300': reference['color-palette-teal-300'],
+        '400': reference['color-palette-teal-400'],
+        '500': reference['color-palette-teal-500'],
+        '600': reference['color-palette-teal-600'],
+        '700': reference['color-palette-teal-700'],
+        '800': reference['color-palette-teal-800'],
+        '900': reference['color-palette-teal-900'],
+      },
+      purple: {
+        '100': reference['color-palette-purple-100'],
+        '200': reference['color-palette-purple-200'],
+        '300': reference['color-palette-purple-300'],
+        '400': reference['color-palette-purple-400'],
+        '500': reference['color-palette-purple-500'],
+        '600': reference['color-palette-purple-600'],
+        '700': reference['color-palette-purple-700'],
+        '800': reference['color-palette-purple-800'],
+        '900': reference['color-palette-purple-900'],
+      },
+      pink: {
+        '100': reference['color-palette-pink-100'],
+        '200': reference['color-palette-pink-200'],
+        '300': reference['color-palette-pink-300'],
+        '400': reference['color-palette-pink-400'],
+        '500': reference['color-palette-pink-500'],
+        '600': reference['color-palette-pink-600'],
+        '700': reference['color-palette-pink-700'],
+        '800': reference['color-palette-pink-800'],
+        '900': reference['color-palette-pink-900'],
+      },
+      hotorange: {
+        '100': reference['color-palette-hotorange-100'],
+        '200': reference['color-palette-hotorange-200'],
+        '300': reference['color-palette-hotorange-300'],
+        '400': reference['color-palette-hotorange-400'],
+        '500': reference['color-palette-hotorange-500'],
+        '600': reference['color-palette-hotorange-600'],
+        '700': reference['color-palette-hotorange-700'],
+        '800': reference['color-palette-hotorange-800'],
+        '900': reference['color-palette-hotorange-900'],
+      },
     },
     radius: {
       base: reference['radius-base'],
       circle: reference['radius-circle'],
     },
-    fontFamily: {
-    },
-   lineHeight: {
-      '2xs': reference['line-height-2xs'],
-      xs: reference['line-height-xs'],
-      sm: reference['line-height-sm'],
-      base: reference['line-height-base'],
-      lg: reference['line-height-lg'],
-      xl: reference['line-height-xl'],
-      '2xl': reference['line-height-2xl'],
-      '3xl': reference['line-height-3xl'],
-      '4xl': reference['line-height-4xl'],
-    },
-    fontWeight: {
-      light: reference['font-weights-light'],
-      regular: reference['font-weights-regular'],
-      medium: reference['font-weights-medium'],
-      bold: reference['font-weights-bold'],
-    },
-    fontSize: {
-      xs: reference['font-size-xs'],
-      sm: reference['font-size-sm'],
-      base: reference['font-size-base'],
-      lg: reference['font-size-lg'],
-      xl: reference['font-size-xl'],
-      '2xl': reference['font-size-2xl'],
-      '3xl': reference['font-size-3xl'],
-      '4xl': reference['font-size-4xl'],
-      '5xl': reference['font-size-5xl'],
-      '6xl': reference['font-size-6xl'],
-    },
-    letterSpacing: {
-      '2xl': reference['letter-spacing-2xl'],
-      xl: reference['letter-spacing-xl'],
-      base: reference['letter-spacing-base'],
-      lg: reference['letter-spacing-lg'],
-      sm: reference['letter-spacing-sm'],
-    },
-    fontBody1: {
-      fontFamily: reference['font-body-1-font-family'],
-      fontSize: reference['font-body-1-font-size'],
-      fontWeight: reference['font-body-1-font-weight'],
-      lineHeight: reference['font-body-1-line-height'],
-      letterSpacing: reference['font-body-1-letter-spacing'],
-      paragraphSpacing: reference['font-body-1-paragraph-spacing'],
-      textDecoration: reference['font-body-1-text-decoration'],
-      textCase: reference['font-body-1-text-case'],
-      bold: {
-        fontFamily: reference['font-body-1-bold-font-family'],
-        fontSize: reference['font-body-1-bold-font-size'],
-        fontWeight: reference['font-body-1-bold-font-weight'],
-        lineHeight: reference['font-body-1-bold-line-height'],
-        letterSpacing: reference['font-body-1-bold-letter-spacing'],
-        paragraphSpacing: reference['font-body-1-bold-paragraph-spacing'],
-        textDecoration: reference['font-body-1-bold-text-decoration'],
-        textCase: reference['font-body-1-bold-text-case'],
-      },
-    },
-    fontBody2:{
-      fontFamily: reference['font-body-2-font-family'],
-      fontSize: reference['font-body-2-font-size'],
-      fontWeight: reference['font-body-2-font-weight'],
-      lineHeight: reference['font-body-2-line-height'],
-      letterSpacing: reference['font-body-2-letter-spacing'],
-      paragraphSpacing: reference['font-body-2-paragraph-spacing'],
-      textDecoration: reference['font-body-2-text-decoration'],
-      textCase: reference['font-body-2-text-case'],
-      bold: {
-        fontFamily: reference['font-body-2-bold-font-family'],
-        fontSize: reference['font-body-2-bold-font-size'],
-        fontWeight: reference['font-body-2-bold-font-weight'],
-        lineHeight: reference['font-body-2-bold-line-height'],
-        letterSpacing: reference['font-body-2-bold-letter-spacing'],
-        paragraphSpacing: reference['font-body-2-bold-paragraph-spacing'],
-        textDecoration: reference['font-body-2-bold-text-decoration'],
-        textCase: reference['font-body-2-bold-text-case'],
-      },
-    },
-    fontBody3: {
-      fontFamily: reference['font-body-3-font-family'],
-      fontSize: reference['font-body-3-font-size'],
-      fontWeight: reference['font-body-3-font-weight'],
-      lineHeight: reference['font-body-3-line-height'],
-      letterSpacing: reference['font-body-3-letter-spacing'],
-      paragraphSpacing: reference['font-body-3-paragraph-spacing'],
-      textDecoration: reference['font-body-3-text-decoration'],
-      textCase: reference['font-body-3-text-case'],
-      bold: {
-        fontFamily: reference['font-body-3-bold-font-family'],
-        fontSize: reference['font-body-3-bold-font-size'],
-        fontWeight: reference['font-body-3-bold-font-weight'],
-        lineHeight: reference['font-body-3-bold-line-height'],
-        letterSpacing: reference['font-body-3-bold-letter-spacing'],
-        paragraphSpacing: reference['font-body-3-bold-paragraph-spacing'],
-        textDecoration: reference['font-body-3-bold-text-decoration'],
-        textCase: reference['font-body-3-bold-text-case'],
-      },
-    },
-    fontControlBody1: {
-      fontFamily: reference['font-control-body-1-font-family'],
-      fontSize: reference['font-control-body-1-font-size'],
-      fontWeight: reference['font-control-body-1-font-weight'],
-      lineHeight: reference['font-control-body-1-line-height'],
-      letterSpacing: reference['font-control-body-1-letter-spacing'],
-      paragraphSpacing: reference['font-control-body-1-paragraph-spacing'],
-      textDecoration: reference['font-control-body-1-text-decoration'],
-      textCase: reference['font-control-body-1-text-case'],
-      bold: {
-        fontFamily: reference['font-control-body-1-bold-font-family'],
-        fontSize: reference['font-control-body-1-bold-font-size'],
-        fontWeight: reference['font-control-body-1-bold-font-weight'],
-        lineHeight: reference['font-control-body-1-bold-line-height'],
-        letterSpacing: reference['font-control-body-1-bold-letter-spacing'],
-        paragraphSpacing: reference['font-control-body-1-bold-paragraph-spacing'],
-        textDecoration: reference['font-control-body-1-bold-text-decoration'],
-        textCase: reference['font-control-body-1-bold-text-case'],
-      },
-    },
-    fontHeading1: {
-      fontFamily: reference['font-heading-1-font-family'],
-      fontSize: reference['font-heading-1-font-size'],
-      fontWeight: reference['font-heading-1-font-weight'],
-      lineHeight: reference['font-heading-1-line-height'],
-      letterSpacing: reference['font-heading-1-letter-spacing'],
-      paragraphSpacing: reference['font-heading-1-paragraph-spacing'],
-      textDecoration: reference['font-heading-1-text-decoration'],
-      textCase: reference['font-heading-1-text-case'],
-      bold: {
-        fontFamily: reference['font-heading-1-bold-font-family'],
-        fontSize: reference['font-heading-1-bold-font-size'],
-        fontWeight: reference['font-heading-1-bold-font-weight'],
-        lineHeight: reference['font-heading-1-bold-line-height'],
-        letterSpacing: reference['font-heading-1-bold-letter-spacing'],
-        paragraphSpacing: reference['font-heading-1-bold-paragraph-spacing'],
-        textDecoration: reference['font-heading-1-bold-text-decoration'],
-        textCase: reference['font-heading-1-bold-text-case'],
-      },
-    },
-    fontHeading2: {
-      fontFamily: reference['font-heading-2-font-family'],
-      fontSize: reference['font-heading-2-font-size'],
-      fontWeight: reference['font-heading-2-font-weight'],
-      lineHeight: reference['font-heading-2-line-height'],
-      letterSpacing: reference['font-heading-2-letter-spacing'],
-      paragraphSpacing: reference['font-heading-2-paragraph-spacing'],
-      textDecoration: reference['font-heading-2-text-decoration'],
-      textCase: reference['font-heading-2-text-case'],
-    },
-    fontHeading3: {
-      fontFamily: reference['font-heading-3-font-family'],
-      fontSize: reference['font-heading-3-font-size'],
-      fontWeight: reference['font-heading-3-font-weight'],
-      lineHeight: reference['font-heading-3-line-height'],
-      letterSpacing: reference['font-heading-3-letter-spacing'],
-      paragraphSpacing: reference['font-heading-3-paragraph-spacing'],
-      textDecoration: reference['font-heading-3-text-decoration'],
-      textCase: reference['font-heading-3-text-case'],
-    },
-    fontHeading4: {
-      fontFamily: reference['font-heading-4-font-family'],
-      fontSize: reference['font-heading-4-font-size'],
-      fontWeight: reference['font-heading-4-font-weight'],
-      lineHeight: reference['font-heading-4-line-height'],
-      letterSpacing: reference['font-heading-4-letter-spacing'],
-      paragraphSpacing: reference['font-heading-4-paragraph-spacing'],
-      textDecoration: reference['font-heading-4-text-decoration'],
-      textCase: reference['font-heading-4-text-case'],
-    },
-    fontHeading5: {
-      fontFamily: reference['font-heading-5-font-family'],
-      fontSize: reference['font-heading-5-font-size'],
-      fontWeight: reference['font-heading-5-font-weight'],
-      lineHeight: reference['font-heading-5-line-height'],
-      letterSpacing: reference['font-heading-5-letter-spacing'],
-      paragraphSpacing: reference['font-heading-5-paragraph-spacing'],
-      textDecoration: reference['font-heading-5-text-decoration'],
-      textCase: reference['font-heading-5-text-case'],
-    },
-    fontHeading6: {
-      fontFamily: reference['font-heading-6-font-family'],
-      fontSize: reference['font-heading-6-font-size'],
-      fontWeight: reference['font-heading-6-font-weight'],
-      lineHeight: reference['font-heading-6-line-height'],
-      letterSpacing: reference['font-heading-6-letter-spacing'],
-      paragraphSpacing: reference['font-heading-6-paragraph-spacing'],
-      textDecoration: reference['font-heading-6-text-decoration'],
-      textCase: reference['font-heading-6-text-case'],
-    },
-    fontDisplay1: {
-      fontFamily: reference['font-display-1-font-family'],
-      fontSize: reference['font-display-1-font-size'],
-      fontWeight: reference['font-display-1-font-weight'],
-      lineHeight: reference['font-display-1-line-height'],
-      letterSpacing: reference['font-display-1-letter-spacing'],
-      paragraphSpacing: reference['font-display-1-paragraph-spacing'],
-      textDecoration: reference['font-display-1-text-decoration'],
-      textCase: reference['font-display-1-text-case'],
-    },
-    fontDisplay2: {
-      fontFamily: reference['font-display-2-font-family'],
-      fontSize: reference['font-display-2-font-size'],
-      fontWeight: reference['font-display-2-font-weight'],
-      lineHeight: reference['font-display-2-line-height'],
-      letterSpacing: reference['font-display-2-letter-spacing'],
-      paragraphSpacing: reference['font-display-2-paragraph-spacing'],
-      textDecoration: reference['font-display-2-text-decoration'],
-      textCase: reference['font-display-2-text-case'],
-    },
-    fontMonospace: {
-      fontFamily: reference['font-monospace-1-font-family'],
-      fontSize: reference['font-monospace-1-font-size'],
-      fontWeight: reference['font-monospace-1-font-weight'],
-      lineHeight: reference['font-monospace-1-line-height'],
-      letterSpacing: reference['font-monospace-1-letter-spacing'],
-      paragraphSpacing: reference['font-monospace-1-paragraph-spacing'],
-      textDecoration: reference['font-monospace-1-text-decoration'],
-      textCase: reference['font-monospace-1-text-case'],
+    shadow: {
+      base: theme['shadow-overlay'],
     },
     spacing: (...factors: number[]): string => {
       // astro spacing formula
       const rems = factors.map(factor => `${0.25 * factor}rem`);
       return rems.slice(0, 4).join().replace(/[,]/g, ' ');
+    },
+    typography: {
+      fontFamily: reference['font-family-sans'],
+      body1: {
+        fontFamily: reference['font-body-1-font-family'],
+        fontSize: reference['font-body-1-font-size'],
+        fontWeight: reference['font-body-1-font-weight'],
+        lineHeight: reference['font-body-1-line-height'],
+        letterSpacing: reference['font-body-1-letter-spacing'],
+        textDecoration: reference['font-body-1-text-decoration'],
+        // paragraphSpacing: reference['font-body-1-paragraph-spacing'],
+        // textCase: reference['font-body-1-text-case'],
+      },
+      body2: {
+        fontFamily: reference['font-body-2-font-family'],
+        fontSize: reference['font-body-2-font-size'],
+        fontWeight: reference['font-body-2-font-weight'],
+        lineHeight: reference['font-body-2-line-height'],
+        letterSpacing: reference['font-body-2-letter-spacing'],
+        textDecoration: reference['font-body-2-text-decoration'],
+        // paragraphSpacing: reference['font-body-2-paragraph-spacing'],
+        // textCase: reference['font-body-2-text-case'],
+      },
+      body3: {
+        fontFamily: reference['font-body-3-font-family'],
+        fontSize: reference['font-body-3-font-size'],
+        fontWeight: reference['font-body-3-font-weight'],
+        lineHeight: reference['font-body-3-line-height'],
+        letterSpacing: reference['font-body-3-letter-spacing'],
+        textDecoration: reference['font-body-3-text-decoration'],
+        // paragraphSpacing: reference['font-body-3-paragraph-spacing'],
+        // textCase: reference['font-body-3-text-case'],
+      },
+      display1: {
+        fontFamily: reference['font-display-1-font-family'],
+        fontSize: reference['font-display-1-font-size'],
+        fontWeight: reference['font-display-1-font-weight'],
+        lineHeight: reference['font-display-1-line-height'],
+        letterSpacing: reference['font-display-1-letter-spacing'],
+        textDecoration: reference['font-display-1-text-decoration'],
+        // paragraphSpacing: reference['font-display-1-paragraph-spacing'],
+        // textCase: reference['font-display-1-text-case'],
+      },
+      display2: {
+        fontFamily: reference['font-display-2-font-family'],
+        fontSize: reference['font-display-2-font-size'],
+        fontWeight: reference['font-display-2-font-weight'],
+        lineHeight: reference['font-display-2-line-height'],
+        letterSpacing: reference['font-display-2-letter-spacing'],
+        textDecoration: reference['font-display-2-text-decoration'],
+        // paragraphSpacing: reference['font-display-2-paragraph-spacing'],
+        // textCase: reference['font-display-2-text-case'],
+      },
+      h1: {
+        fontFamily: reference['font-heading-1-font-family'],
+        fontSize: reference['font-heading-1-font-size'],
+        fontWeight: reference['font-heading-1-font-weight'],
+        lineHeight: reference['font-heading-1-line-height'],
+        letterSpacing: reference['font-heading-1-letter-spacing'],
+        textDecoration: reference['font-heading-1-text-decoration'],
+        // paragraphSpacing: reference['font-heading-1-paragraph-spacing'],
+        // textCase: reference['font-heading-1-text-case'],
+      },
+      h2: {
+        fontFamily: reference['font-heading-2-font-family'],
+        fontSize: reference['font-heading-2-font-size'],
+        fontWeight: reference['font-heading-2-font-weight'],
+        lineHeight: reference['font-heading-2-line-height'],
+        letterSpacing: reference['font-heading-2-letter-spacing'],
+        textDecoration: reference['font-heading-2-text-decoration'],
+        // paragraphSpacing: reference['font-heading-2-paragraph-spacing'],
+        // textCase: reference['font-heading-2-text-case'],
+      },
+      h3: {
+        fontFamily: reference['font-heading-3-font-family'],
+        fontSize: reference['font-heading-3-font-size'],
+        fontWeight: reference['font-heading-3-font-weight'],
+        lineHeight: reference['font-heading-3-line-height'],
+        letterSpacing: reference['font-heading-3-letter-spacing'],
+        textDecoration: reference['font-heading-3-text-decoration'],
+        // paragraphSpacing: reference['font-heading-3-paragraph-spacing'],
+        // textCase: reference['font-heading-3-text-case'],
+      },
+      h4: {
+        fontFamily: reference['font-heading-4-font-family'],
+        fontSize: reference['font-heading-4-font-size'],
+        fontWeight: reference['font-heading-4-font-weight'],
+        lineHeight: reference['font-heading-4-line-height'],
+        letterSpacing: reference['font-heading-4-letter-spacing'],
+        textDecoration: reference['font-heading-4-text-decoration'],
+        // paragraphSpacing: reference['font-heading-4-paragraph-spacing'],
+        // textCase: reference['font-heading-4-text-case'],
+      },
+      h5: {
+        fontFamily: reference['font-heading-5-font-family'],
+        fontSize: reference['font-heading-5-font-size'],
+        fontWeight: reference['font-heading-5-font-weight'],
+        lineHeight: reference['font-heading-5-line-height'],
+        letterSpacing: reference['font-heading-5-letter-spacing'],
+        textDecoration: reference['font-heading-5-text-decoration'],
+        // paragraphSpacing: reference['font-heading-5-paragraph-spacing'],
+        // textCase: reference['font-heading-5-text-case'],
+      },
+      h6: {
+        fontFamily: reference['font-heading-6-font-family'],
+        fontSize: reference['font-heading-6-font-size'],
+        fontWeight: reference['font-heading-6-font-weight'],
+        lineHeight: reference['font-heading-6-line-height'],
+        letterSpacing: reference['font-heading-6-letter-spacing'],
+        textDecoration: reference['font-heading-6-text-decoration'],
+        // paragraphSpacing: reference['font-heading-6-paragraph-spacing'],
+        // textCase: reference['font-heading-6-text-case'],
+      },
+      monospace: {
+        fontFamily: reference['font-monospace-1-font-family'],
+        fontSize: reference['font-monospace-1-font-size'],
+        fontWeight: reference['font-monospace-1-font-weight'],
+        lineHeight: reference['font-monospace-1-line-height'],
+        letterSpacing: reference['font-monospace-1-letter-spacing'],
+        textDecoration: reference['font-monospace-1-text-decoration'],
+        // paragraphSpacing: reference['font-monospace-1-paragraph-spacing'],
+        // textCase: reference['font-monospace-1-text-case'],
+      },
+      lineHeight: {
+        '2xs': reference['line-height-2xs'],
+        xs: reference['line-height-xs'],
+        sm: reference['line-height-sm'],
+        base: reference['line-height-base'],
+        lg: reference['line-height-lg'],
+        xl: reference['line-height-xl'],
+        '2xl': reference['line-height-2xl'],
+        '3xl': reference['line-height-3xl'],
+        '4xl': reference['line-height-4xl'],
+      },
+      fontWeight: {
+        light: reference['font-weights-light'],
+        regular: reference['font-weights-regular'],
+        medium: reference['font-weights-medium'],
+        bold: reference['font-weights-bold'],
+      },
+      fontSize: {
+        xs: reference['font-size-xs'],
+        sm: reference['font-size-sm'],
+        base: reference['font-size-base'],
+        lg: reference['font-size-lg'],
+        xl: reference['font-size-xl'],
+        '2xl': reference['font-size-2xl'],
+        '3xl': reference['font-size-3xl'],
+        '4xl': reference['font-size-4xl'],
+        '5xl': reference['font-size-5xl'],
+        '6xl': reference['font-size-6xl'],
+      },
+      letterSpacing: {
+        '2xl': reference['letter-spacing-2xl'],
+        xl: reference['letter-spacing-xl'],
+        base: reference['letter-spacing-base'],
+        lg: reference['letter-spacing-lg'],
+        sm: reference['letter-spacing-sm'],
+      },
     },
   };
 };
