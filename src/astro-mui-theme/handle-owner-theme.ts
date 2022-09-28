@@ -6,18 +6,17 @@ export const handleOwnerTheme = (
   debug: boolean
 ): Theme => {
   if (debug) {
-    console.log('[ASTRO THEME]', astroTheme);
-    console.log('[OWNER THEME]', ownerTheme);
+    console.log('[ASTRO THEME]:', astroTheme);
+    console.log('[OWNER THEME]:', ownerTheme);
   }
 
   return {
-    // owner override all
+    // owner overrides
     ...astroTheme,
     ...ownerTheme,
     components: {
-      // astro override all components
-      ...ownerTheme.components,
       ...astroTheme.components,
+      ...ownerTheme.components,
     },
   };
 };

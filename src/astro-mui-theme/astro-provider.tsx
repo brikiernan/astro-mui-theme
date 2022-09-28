@@ -18,7 +18,7 @@ export const AstroThemeProvider: React.FC<AstroThemeProviderProps> = props => {
 
   React.useEffect(() => {
     if (debug) {
-      console.log('THEME OUTPUT', theme);
+      console.log('[THEME OUTPUT]:', theme);
     }
   }, [theme]);
 

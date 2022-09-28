@@ -51,9 +51,6 @@ export const astroTheme = (mode: Mode = 'dark') => {
         hover: astro.color.background.base.default,
         selected: astro.color.background.base.selected,
       },
-      grey: {
-        '100': astro.palette.grey['100'],
-      },
     },
     shape: {
       borderRadius: parseInt(astro.radius.base.charAt(0)),
@@ -64,65 +61,6 @@ export const astroTheme = (mode: Mode = 'dark') => {
       body1: astro.typography.body1,
     },
     /* -- Start default Mui component overrides -- */
-    components: {
-      MuiButton: {
-        defaultProps: {
-          disableElevation: true,
-          disableRipple: true,
-          variant: 'contained',
-        },
-        styleOverrides: {
-          contained: {
-            color: astro.color.text.inverse,
-            backgroundColor: astro.color.background.interactive.default,
-            borderRadius: astro.radius.base,
-            '&:hover': {
-              backgroundColor: astro.color.background.interactive.hover,
-            },
-          },
-          root: {
-            padding: astro.spacing(2, 4),
-            textTransform: 'none',
-            ...astro.typography.body1,
-          },
-        },
-      },
-      MuiList: {
-        styleOverrides: {
-          root: {
-            backgroundColor: astro.color.background.surface.default,
-          },
-        },
-        defaultProps: {
-          disablePadding: true,
-        },
-      },
-      MuiListItemButton: {
-        defaultProps: {
-          disableRipple: true,
-          divider: true,
-        },
-        styleOverrides: {
-          root: {
-            '&:hover': {
-              backgroundColor: astro.color.background.surface.hover,
-            },
-            '&.Mui-selected': {
-              backgroundColor: astro.color.background.surface.selected,
-              boxShadow: `-4px 0 0 0 ${astro.color.border.interactive.default}`,
-              paddingLeft: astro.spacing(3),
-              marginLeft: astro.spacing(1),
-            },
-            '&.MuiListItemButton-divider': {
-              borderBottomWidth: astro.color.border.width.sm,
-              borderBottomStyle: 'solid',
-              borderBottomColor: astro.color.text.inverse,
-            },
-            gap: astro.spacing(4),
-            padding: astro.spacing(1, 4),
-          },
-        },
-      },
-    },
+    components: {},
   });
 };
