@@ -5,7 +5,7 @@ import lightTheme from '@astrouxds/tokens/dist/json/theme.light.json';
 import type { AstroTheme } from '../types/astro-theme';
 import type { Mode } from '../types/global';
 
-export const astroTokens = (mode: Mode): AstroTheme['astro'] => {
+export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
   const isLightTheme = mode === 'light';
   // prettier-ignore
   let theme: typeof lightTheme = {
@@ -77,6 +77,14 @@ export const astroTokens = (mode: Mode): AstroTheme['astro'] => {
   }
 
   return {
+    border: {
+      width: {
+        none: reference['border-width-none'],
+        xs: reference['border-width-xs'],
+        sm: reference['border-width-sm'],
+        lg: reference['border-width-lg'],
+      },
+    },
     color: {
       background: {
         base: {
@@ -115,12 +123,6 @@ export const astroTokens = (mode: Mode): AstroTheme['astro'] => {
           default: theme['color-border-interactive-default'],
           hover: theme['color-border-interactive-hover'],
           muted: theme['color-border-interactive-muted'],
-        },
-        width: {
-          none: reference['border-width-none'],
-          xs: reference['border-width-xs'],
-          sm: reference['border-width-sm'],
-          lg: reference['border-width-lg'],
         },
       },
       status: {
