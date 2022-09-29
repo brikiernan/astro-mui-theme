@@ -23,5 +23,9 @@ export const handleOwnerTheme = (
       // astro overrides
       ...astroTheme.palette,
     },
+    typography: {
+      // astro overrides
+      ...astroTheme.typography,
+    },
   };
 };
