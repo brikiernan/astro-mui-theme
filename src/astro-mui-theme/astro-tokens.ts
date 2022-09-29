@@ -5,7 +5,7 @@ import lightTheme from '@astrouxds/tokens/dist/json/theme.light.json';
 import type { AstroTheme } from '../types/astro-theme';
 import type { Mode } from '../types/global';
 
-export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
+export const astroTokens = (mode: Mode): AstroTheme['astro'] => {
   const isLightTheme = mode === 'light';
   // prettier-ignore
   let theme: typeof lightTheme = {
@@ -77,14 +77,6 @@ export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
   }
 
   return {
-    border: {
-      width: {
-        none: reference['border-width-none'],
-        xs: reference['border-width-xs'],
-        sm: reference['border-width-sm'],
-        lg: reference['border-width-lg'],
-      },
-    },
     color: {
       background: {
         base: {
@@ -123,6 +115,12 @@ export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
           default: theme['color-border-interactive-default'],
           hover: theme['color-border-interactive-hover'],
           muted: theme['color-border-interactive-muted'],
+        },
+        width: {
+          none: reference['border-width-none'],
+          xs: reference['border-width-xs'],
+          sm: reference['border-width-sm'],
+          lg: reference['border-width-lg'],
         },
       },
       status: {
@@ -307,6 +305,8 @@ export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
         lineHeight: reference['font-body-1-line-height'],
         letterSpacing: reference['font-body-1-letter-spacing'],
         textDecoration: reference['font-body-1-text-decoration'],
+        // paragraphSpacing: reference['font-body-1-paragraph-spacing'],
+        // textCase: reference['font-body-1-text-case'],
       },
       body2: {
         fontFamily: reference['font-body-2-font-family'],
@@ -315,6 +315,8 @@ export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
         lineHeight: reference['font-body-2-line-height'],
         letterSpacing: reference['font-body-2-letter-spacing'],
         textDecoration: reference['font-body-2-text-decoration'],
+        // paragraphSpacing: reference['font-body-2-paragraph-spacing'],
+        // textCase: reference['font-body-2-text-case'],
       },
       body3: {
         fontFamily: reference['font-body-3-font-family'],
@@ -323,6 +325,8 @@ export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
         lineHeight: reference['font-body-3-line-height'],
         letterSpacing: reference['font-body-3-letter-spacing'],
         textDecoration: reference['font-body-3-text-decoration'],
+        // paragraphSpacing: reference['font-body-3-paragraph-spacing'],
+        // textCase: reference['font-body-3-text-case'],
       },
       display1: {
         fontFamily: reference['font-display-1-font-family'],
@@ -331,6 +335,8 @@ export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
         lineHeight: reference['font-display-1-line-height'],
         letterSpacing: reference['font-display-1-letter-spacing'],
         textDecoration: reference['font-display-1-text-decoration'],
+        // paragraphSpacing: reference['font-display-1-paragraph-spacing'],
+        // textCase: reference['font-display-1-text-case'],
       },
       display2: {
         fontFamily: reference['font-display-2-font-family'],
@@ -339,6 +345,8 @@ export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
         lineHeight: reference['font-display-2-line-height'],
         letterSpacing: reference['font-display-2-letter-spacing'],
         textDecoration: reference['font-display-2-text-decoration'],
+        // paragraphSpacing: reference['font-display-2-paragraph-spacing'],
+        // textCase: reference['font-display-2-text-case'],
       },
       h1: {
         fontFamily: reference['font-heading-1-font-family'],
@@ -347,6 +355,8 @@ export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
         lineHeight: reference['font-heading-1-line-height'],
         letterSpacing: reference['font-heading-1-letter-spacing'],
         textDecoration: reference['font-heading-1-text-decoration'],
+        // paragraphSpacing: reference['font-heading-1-paragraph-spacing'],
+        // textCase: reference['font-heading-1-text-case'],
       },
       h2: {
         fontFamily: reference['font-heading-2-font-family'],
@@ -355,6 +365,8 @@ export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
         lineHeight: reference['font-heading-2-line-height'],
         letterSpacing: reference['font-heading-2-letter-spacing'],
         textDecoration: reference['font-heading-2-text-decoration'],
+        // paragraphSpacing: reference['font-heading-2-paragraph-spacing'],
+        // textCase: reference['font-heading-2-text-case'],
       },
       h3: {
         fontFamily: reference['font-heading-3-font-family'],
@@ -363,6 +375,8 @@ export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
         lineHeight: reference['font-heading-3-line-height'],
         letterSpacing: reference['font-heading-3-letter-spacing'],
         textDecoration: reference['font-heading-3-text-decoration'],
+        // paragraphSpacing: reference['font-heading-3-paragraph-spacing'],
+        // textCase: reference['font-heading-3-text-case'],
       },
       h4: {
         fontFamily: reference['font-heading-4-font-family'],
@@ -371,6 +385,8 @@ export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
         lineHeight: reference['font-heading-4-line-height'],
         letterSpacing: reference['font-heading-4-letter-spacing'],
         textDecoration: reference['font-heading-4-text-decoration'],
+        // paragraphSpacing: reference['font-heading-4-paragraph-spacing'],
+        // textCase: reference['font-heading-4-text-case'],
       },
       h5: {
         fontFamily: reference['font-heading-5-font-family'],
@@ -379,6 +395,8 @@ export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
         lineHeight: reference['font-heading-5-line-height'],
         letterSpacing: reference['font-heading-5-letter-spacing'],
         textDecoration: reference['font-heading-5-text-decoration'],
+        // paragraphSpacing: reference['font-heading-5-paragraph-spacing'],
+        // textCase: reference['font-heading-5-text-case'],
       },
       h6: {
         fontFamily: reference['font-heading-6-font-family'],
@@ -387,6 +405,8 @@ export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
         lineHeight: reference['font-heading-6-line-height'],
         letterSpacing: reference['font-heading-6-letter-spacing'],
         textDecoration: reference['font-heading-6-text-decoration'],
+        // paragraphSpacing: reference['font-heading-6-paragraph-spacing'],
+        // textCase: reference['font-heading-6-text-case'],
       },
       monospace: {
         fontFamily: reference['font-monospace-1-font-family'],
@@ -395,6 +415,8 @@ export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
         lineHeight: reference['font-monospace-1-line-height'],
         letterSpacing: reference['font-monospace-1-letter-spacing'],
         textDecoration: reference['font-monospace-1-text-decoration'],
+        // paragraphSpacing: reference['font-monospace-1-paragraph-spacing'],
+        // textCase: reference['font-monospace-1-text-case'],
       },
       lineHeight: {
         '2xs': reference['line-height-2xs'],

@@ -1,13 +1,5 @@
 export interface AstroTheme {
   astro: {
-    border: {
-      width: {
-        none: number;
-        xs: string;
-        sm: string;
-        lg: string;
-      };
-    };
     color: {
       background: {
         base: {
@@ -33,6 +25,12 @@ export interface AstroTheme {
           default: string;
           hover: string;
           muted: string;
+        };
+        width: {
+          none: number;
+          xs: string;
+          sm: string;
+          lg: string;
         };
       };
       classification: {

@@ -1,6 +1,6 @@
 {
   "name": "astro-mui-theme",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "description": "A MUI theme provider for Astro UXDS space design system.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -15,8 +15,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "peerDependencies": {
+    "@mui/material": ">= 5.x.x",
+    "react": ">= 16.8.x"
+  },
   "devDependencies": {
-    "@mui/material": "^5.6.2",
+    "@mui/material": "latest",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^14.1.0",
