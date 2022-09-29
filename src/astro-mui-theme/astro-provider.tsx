@@ -8,8 +8,7 @@ import { handleOwnerTheme } from './handle-owner-theme';
 export interface AstroThemeProviderProps {
   children: React.ReactNode;
   /**
-   * Adds console logs for Astro theme, Owner theme, and
-   * the combinded theme output
+   * Adds console logs for Astro theme, Owner theme, and the combinded theme output
    *
    * @default false
    */
@@ -21,14 +20,13 @@ export interface AstroThemeProviderProps {
    */
   mode?: Mode;
   /**
-   * Overrides some of the Astro theme, but NO ownerTheme
-   * is required to use the Astro theme
+   * Overrides some of the Astro theme, but NO theme is required to use the Astro theme
    */
-  ownerTheme?: Theme;
+  theme?: Theme;
 }
 
 export const AstroThemeProvider: React.FC<AstroThemeProviderProps> = props => {
-  const { children, debug = false, mode, ownerTheme } = props;
+  const { children, debug = false, mode, theme: ownerTheme } = props;
   const [theme, setTheme] = React.useState<Theme>(astroTheme(mode));
 
   React.useEffect(() => {
