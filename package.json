@@ -17,6 +17,8 @@
   "license": "ISC",
   "devDependencies": {
     "@mui/material": "latest",
+    "@emotion/styled": "latest",
+    "@emotion/react": "latest",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^14.1.0",
