@@ -133,17 +133,14 @@ export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
         standby: system['color-status-standby'],
         off: system['color-status-off'],
       },
+      // prettier-ignore
       classification: {
-        topsecretsci:
-          component['classification-banner-color-background-topsecretsci'],
-        topsecret:
-          component['classification-banner-color-background-topsecretsci'],
+        topsecretsci: component['classification-banner-color-background-topsecretsci'],
+        topsecret: component['classification-banner-color-background-topsecretsci'],
         secret: component['classification-banner-color-background-secret'],
-        confidential:
-          component['classification-banner-color-background-confidential'],
+        confidential: component['classification-banner-color-background-confidential'],
         cui: component['classification-banner-color-background-cui'],
-        unclassified:
-          component['classification-banner-color-background-unclassified'],
+        unclassified: component['classification-banner-color-background-unclassified'],
       },
     },
     opacity: {

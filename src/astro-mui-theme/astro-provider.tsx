@@ -30,19 +30,15 @@ export const AstroThemeProvider: React.FC<AstroThemeProviderProps> = props => {
   const [theme, setTheme] = React.useState<Theme>(astroTheme(mode));
 
   React.useEffect(() => {
-    if (debug) {
-      console.log('[THEME OUTPUT]:', theme);
-    }
+    if (debug) console.log('[THEME OUTPUT]:', theme);
   }, [theme]);
 
   React.useEffect(() => {
-    const astro = astroTheme(mode);
-
-    setTheme(() => {
+    setTheme(astro => {
       if (!ownerTheme) return astro;
       return handleOwnerTheme(astro, ownerTheme, debug);
     });
-  }, [debug, mode, ownerTheme]);
+  }, [debug, ownerTheme]);
 
   return (
     <ThemeProvider theme={theme}>
