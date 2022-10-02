@@ -38,7 +38,7 @@ export const AstroThemeProvider: React.FC<AstroThemeProviderProps> = props => {
       if (!ownerTheme) return astro;
       return handleOwnerTheme(astro, ownerTheme, debug);
     });
-  }, [debug, ownerTheme]);
+  }, [debug, mode, ownerTheme]);
 
   return (
     <ThemeProvider theme={theme}>
