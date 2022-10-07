@@ -7,6 +7,30 @@ declare module '@mui/material' {
   interface ThemeOptions extends AstroTheme {}
 }
 
+declare module '@mui/material/styles' {
+  interface TypographyVariants {
+    body3: React.CSSProperties;
+    display1: React.CSSProperties;
+    display2: React.CSSProperties;
+  }
+
+  // allow configuration using `createTheme`
+  interface TypographyVariantsOptions {
+    body3?: React.CSSProperties;
+    display1?: React.CSSProperties;
+    display2?: React.CSSProperties;
+  }
+}
+
+// Update the Typography's variant prop options
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    body3: true;
+    display1: true;
+    display2: true;
+  }
+}
+
 export const astroTheme = (mode: Mode = 'dark') => {
   const astro = astroTokens(mode);
 
@@ -60,6 +84,9 @@ export const astroTheme = (mode: Mode = 'dark') => {
       button: astro.typography.body1,
       body1: astro.typography.body1,
       body2: astro.typography.body2,
+      body3: astro.typography.body3,
+      display1: astro.typography.display1,
+      display2: astro.typography.display2,
       h1: astro.typography.h1,
       h2: astro.typography.h2,
       h3: astro.typography.h3,
