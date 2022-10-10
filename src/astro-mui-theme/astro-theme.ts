@@ -1,16 +1,17 @@
 import { createTheme } from '@mui/material';
+import type { TypographyStyleOptions } from '@mui/material/styles/createTypography';
 import type { Mode } from '../types/global';
-import type { AstroTheme, FontControl } from '../types/astro-theme';
+import type { AstroTheme } from '../types/astro-theme';
 import { astroTokens } from './astro-tokens';
 
-// allow configuration in the 'createTheme' below
+// allow configuration in the createTheme() below
 declare module '@mui/material' {
   interface ThemeOptions extends AstroTheme {}
 
   interface TypographyVariantsOptions {
-    body3?: FontControl;
-    display1?: FontControl;
-    display2?: FontControl;
+    body3?: TypographyStyleOptions;
+    display1?: TypographyStyleOptions;
+    display2?: TypographyStyleOptions;
   }
 }
 
