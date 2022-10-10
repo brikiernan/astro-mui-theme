@@ -1,33 +1,16 @@
 import { createTheme } from '@mui/material';
 import type { Mode } from '../types/global';
-import type { AstroTheme } from '../types/astro-theme';
+import type { AstroTheme, FontControl } from '../types/astro-theme';
 import { astroTokens } from './astro-tokens';
 
+// allow configuration in the 'createTheme' below
 declare module '@mui/material' {
   interface ThemeOptions extends AstroTheme {}
-}
 
-declare module '@mui/material/styles' {
-  interface TypographyVariants {
-    body3: React.CSSProperties;
-    display1: React.CSSProperties;
-    display2: React.CSSProperties;
-  }
-
-  // allow configuration using `createTheme`
   interface TypographyVariantsOptions {
-    body3?: React.CSSProperties;
-    display1?: React.CSSProperties;
-    display2?: React.CSSProperties;
-  }
-}
-
-// Update the Typography's variant prop options
-declare module '@mui/material/Typography' {
-  interface TypographyPropsVariantOverrides {
-    body3: true;
-    display1: true;
-    display2: true;
+    body3?: FontControl;
+    display1?: FontControl;
+    display2?: FontControl;
   }
 }
 

@@ -186,7 +186,7 @@ type PaletteHalf = {
   '900': string;
 };
 
-type FontControl = {
+export type FontControl = {
   fontFamily: string;
   fontWeight: string;
   lineHeight: string;
