@@ -11,8 +11,8 @@ declare module '@mui/material' {
 // Add Astro's Typography variants to the owner's TypographyProps
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
-    body3: 'body3';
-    display1: 'display1';
-    display2: 'display2';
+    body3: true;
+    display1: true;
+    display2: true;
   }
 }
