@@ -8,19 +8,16 @@ export const handleOwnerTheme = (astroTheme: Theme, ownerTheme: Theme, debug: bo
 
   return {
     // owner overrides
-    ...astroTheme,
     ...ownerTheme,
     components: {
       // owner overrides
       ...ownerTheme.components,
       // astro overrides
       MuiList: {
-        ...ownerTheme.components?.MuiList,
         ...astroTheme.components?.MuiList,
       },
       // astro overrides
       MuiListItemButton: {
-        ...ownerTheme.components?.MuiListItemButton,
         ...astroTheme.components?.MuiListItemButton,
       },
     },
