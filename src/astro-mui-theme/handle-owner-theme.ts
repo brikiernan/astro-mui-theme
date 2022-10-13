@@ -11,6 +11,8 @@ export const handleOwnerTheme = (astroTheme: Theme, ownerTheme: Theme, debug: bo
     ...astroTheme,
     ...ownerTheme,
     components: {
+      // owner overrides
+      ...ownerTheme.components,
       // astro overrides
       MuiList: {
         ...astroTheme.components?.MuiList,
