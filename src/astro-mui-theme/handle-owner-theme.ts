@@ -1,10 +1,6 @@
 import { Theme } from '@mui/material';
 
-export const handleOwnerTheme = (
-  astroTheme: Theme,
-  ownerTheme: Theme,
-  debug: boolean
-): Theme => {
+export const handleOwnerTheme = (astroTheme: Theme, ownerTheme: Theme, debug: boolean): Theme => {
   if (debug) {
     console.log('[ASTRO THEME]:', astroTheme);
     console.log('[OWNER THEME]:', ownerTheme);
@@ -16,8 +12,17 @@ export const handleOwnerTheme = (
     ...ownerTheme,
     components: {
       // owner overrides
-      ...astroTheme.components,
       ...ownerTheme.components,
+      // astro overrides
+      MuiList: {
+        ...ownerTheme.components?.MuiList,
+        ...astroTheme.components?.MuiList,
+      },
+      // astro overrides
+      MuiListItemButton: {
+        ...ownerTheme.components?.MuiListItemButton,
+        ...astroTheme.components?.MuiListItemButton,
+      },
     },
     palette: {
       // astro overrides

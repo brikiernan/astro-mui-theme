@@ -79,6 +79,43 @@ export const astroTheme = (mode: Mode = 'dark') => {
       h6: astro.typography.h6,
     },
     /* -- Start default Mui component overrides -- */
-    components: {},
+    components: {
+      MuiList: {
+        styleOverrides: {
+          root: {
+            backgroundColor: astro.color.background.surface.default,
+          },
+        },
+        defaultProps: {
+          disablePadding: true,
+        },
+      },
+      MuiListItemButton: {
+        defaultProps: {
+          disableRipple: true,
+          divider: true,
+        },
+        styleOverrides: {
+          root: {
+            '&:hover': {
+              backgroundColor: astro.color.background.surface.hover,
+            },
+            '&.Mui-selected': {
+              backgroundColor: astro.color.background.surface.selected,
+              boxShadow: `-4px 0 0 0 ${astro.color.border.interactive.default}`,
+              marginLeft: astro.spacing(1),
+              paddingLeft: astro.spacing(3),
+            },
+            '&.MuiListItemButton-divider': {
+              borderBottomWidth: astro.border.width.sm,
+              borderBottomStyle: 'solid',
+              borderBottomColor: astro.color.text.inverse,
+            },
+            paddingRight: astro.spacing(4),
+            paddingLeft: astro.spacing(4),
+          },
+        },
+      },
+    },
   });
 };

@@ -7,7 +7,7 @@ import type { Mode } from '../types/global';
 
 export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
   const isLightTheme = mode === 'light';
-  // prettier-ignore
+
   let theme: typeof lightTheme = {
     'gsb-icon-color-fill-default': component['gsb-icon-color-fill-default'],
     'gsb-icon-color-fill-hover': component['gsb-icon-color-fill-hover'],
@@ -41,7 +41,7 @@ export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
     'color-border-error': system['color-border-error'],
     'shadow-overlay': system['shadow-overlay'],
   };
-  // prettier-ignore
+
   if (isLightTheme) {
     theme['gsb-icon-color-fill-default'] = lightTheme['gsb-icon-color-fill-default'];
     theme['gsb-icon-color-fill-hover'] = lightTheme['gsb-icon-color-fill-hover'];
@@ -133,7 +133,6 @@ export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
         standby: system['color-status-standby'],
         off: system['color-status-off'],
       },
-      // prettier-ignore
       classification: {
         topsecretsci: component['classification-banner-color-background-topsecretsci'],
         topsecret: component['classification-banner-color-background-topsecretsci'],
@@ -292,7 +291,7 @@ export const astroTokens = (mode: Mode = 'dark'): AstroTheme['astro'] => {
     },
     spacing: (...factors: number[]): string => {
       // astro spacing formula
-      const rems = factors.map(factor => `${0.25 * factor}rem`);
+      const rems = factors.map((factor) => `${0.25 * factor}rem`);
       return rems.slice(0, 4).join().replace(/[,]/g, ' ');
     },
     typography: {
